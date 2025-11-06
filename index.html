@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.plot.ly/plotly-2.35.3.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Primer Examen Parcial</title>
+</head>
+<body>
+    <main class="container">
+        <header class="appbar">
+            <h1>Simulador de robot con 2 grados de libertad</h1>
+        </header>
+
+        <section class="toolbar card">
+        <div class="app-actions">
+            <button id="btn-home" class="btn btn-secondary">Posición Inicial</button>
+            <button id="btn-limite" class="btn btn-secondary">Límite Pinza</button>
+
+            <div class="segmented" id="mode-group" role="tablist" aria-label="Modo de movimiento">
+            <button id="mode-anim" class="btn btn-secondary is-active" role="tab" aria-selected="true">Animación</button>
+            <button id="mode-instant" class="btn btn-secondary" role="tab" aria-selected="false">Instantáneo</button>
+            </div>
+
+            <button id="btn-theme" class="btn btn-ghost" title="Cambiar tema">🌙</button>
+        </div>
+        </section>
+
+        <section class="card controls">
+            <h3>Posición deseada</h3>
+            <div class="form-row">
+            <label for="input-xd">x<sub>d</sub> (m)</label>
+            <input type="number" id="input-xd" step="0.01" placeholder="0.10">
+            <label for="input-yd">y<sub>d</sub> (m)</label>
+            <input type="number" id="input-yd" step="0.01" placeholder="0.20">
+            <label for="select-elbow">Codo</label>
+            <select id="select-elbow">
+                <option value="up">Arriba</option>
+                <option value="down">Abajo</option>
+            </select>
+            <button id="btn-aplicar" class="btn btn-primary">Aplicar</button>
+            </div>
+
+            <div class="form-row meta">
+            <div><span>L1</span><strong>0.12 m</strong></div>
+            <div><span>L2</span><strong>0.12 m</strong></div>
+            <div><span>Pinza</span><strong>0.02 m</strong></div>
+            <div><span>t<sub>i</sub></span><strong>0 s</strong></div>
+            <div><span>t<sub>f</sub></span><strong>20 s</strong></div>
+            </div>
+        </section>
+
+        <section class="card viz">
+            <div class="viz-head">
+            <h3>Robot 2 GDL</h3>
+            <small>Puede dar clic en la posición deseada para mover el robot.</small>
+            </div>
+            <div class="canvas-wrap">
+            <canvas id="robot-canvas" width="640" height="480" aria-live="Canvas del Robot"></canvas>
+            </div>
+        </section>
+
+        <section class="grid plots">
+            <div class="card plot">
+            <h3>q1d(t)</h3>
+            <div id="plot-q1" class="plotly"></div>
+            </div>
+            <div class="card plot">
+            <h3>q2d(t)</h3>
+            <div id="plot-q2" class="plotly"></div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+
+    <footer class="site-footer card" role="contentinfo">
+        <div class="footer-grid">
+            <div class="brand">
+            <strong>Simulador 2 GDL</strong>
+            <span>v1.0</span>
+            </div>
+
+            <div class="author">
+            <div class="label">Desarrollador</div>
+            <div class="value">Aldair Hernández Juárez — UNAM, Ingeniería en Computación</div>
+            </div>
+
+            <div class="meta">
+            <div class="label">Curso</div>
+            <div class="value">Robótica / Control de Manipuladores</div>
+            </div>
+
+            <div class="links">
+            <a href="https://github.com/AldairH/Simulador-de-robot-con-2-grados-de-libertad" target="_blank" rel="noopener" class="footer-link" title="GitHub">GitHub</a>
+            </div>
+
+            <div class="copy">
+            © <span></span> AldairH
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
